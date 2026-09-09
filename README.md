@@ -1,5 +1,5 @@
-# tugas_pertama
-
+#T3
+https://docs.google.com/document/d/11hoSyb5P6m_mBGcZ8febSr_3I-RsN7mkHVH7im8WDcE/edit?usp=sharing
 A new Flutter project.
 
 ## Getting Started
