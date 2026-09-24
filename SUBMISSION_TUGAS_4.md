@@ -13,106 +13,103 @@
 | **Nama Lengkap** | Diego Armando Ramadhan |
 | **NIM** | 253140701111062 |
 | **Kelas** | T3D |
-| **Mata Kuliah** | Pemrograman Mobile |
+| **Mata Kuliah** | Pemrograman Mobile (Mobile Developer) |
 | **Modul** | Tugas #4: Routing & Navigation Antar Screen |
 
 ---
 
-## 🎯 2. Evaluasi Rubrik & Pemenuhan Scope of Work
+## 🎯 2. Evaluasi Rubrik & Pemenuhan Scope of Work Tugas #4
 
-| No | Kriteria Rubrik | Target Scope of Work | Bukti Implementasi pada Kode |
-| :-: | :--- | :--- | :--- |
-| **a** | **Screen 1 (Katalog)** | Wajib `StatelessWidget`, menampilkan `ListView` berisi 3 `Card` interaktif. | Terpenuhi pada `lib/screens/catalog_screen.dart` dengan 3 kartu paket IT. |
-| **b** | **Navigasi Stack** | Menggunakan `Navigator.push` untuk perpindahan dari Screen 1 ke Screen 2. | Terpenuhi melalui event `onTap` pada tombol *"Pilih Paket"*. |
-| **c** | **Screen 2 (Detail)** | Wajib `StatefulWidget` dengan tata letak vertikal `Column`. | Terpenuhi pada `lib/screens/detail_screen.dart`. |
-| **d** | **Kotak Pastel Deskripsi** | `Container` warna pastel dengan padding sebagai tempat deskripsi/bio. | Terpenuhi menggunakan warna pastel mint (`#E8F5E9` & border `#C8E6C9`) dan padding `16dp`. |
-| **e** | **Tombol Kembali Otomatis** | `AppBar` dengan tombol kembali bawaan (`Navigator.pop`). | Terpenuhi pada `AppBar` di `DetailScreen`. |
-| **f** | **Mutasi State Interaktif** | Perubahan state pada tombol interaktif menggunakan `setState`. | Terpenuhi pada counter kuantitas, toggle support tambahan, total biaya dinamis, dan dialog pesanan. |
+| No | Requirement Scope of Work (Tugas #4) | Status | Bukti Implementasi pada Kode |
+| :-: | :--- | :---: | :--- |
+| **a** | **Screen 1 (Beranda / Katalog)** wajib `StatelessWidget` dengan `ListView` 3 cards dan tombol yang bisa diklik. | ✅ Terpenuhi | `lib/screens/catalog_screen.dart` mengimplementasikan `StatelessWidget` dengan `ListView.builder` merender 3 `PricingCard` (Paket Starter, Profesional, dan Enterprise). |
+| **b** | **Navigasi Stack (`Navigator.push`)** untuk perpindahan Screen 1 ke Screen 2. | ✅ Terpenuhi | Tombol *"Pilih Paket"* memicu `Navigator.push` dengan `MaterialPageRoute` dan mengirimkan objek model (`package`) ke `DetailScreen`. |
+| **c** | **Screen 2 (Detail Katalog)** wajib tata letak vertikal `Column` & `StatefulWidget`. | ✅ Terpenuhi | `lib/screens/detail_screen.dart` berupa `StatefulWidget` dengan layout vertikal `Column` dalam `SingleChildScrollView`. |
+| **d** | **Elemen Visual Screen 2**: <br>• Icon back kembali ke Screen 1<br>• Text nama katalog & harga<br>• Container warna pastel & padding deskripsi | ✅ Terpenuhi | • `AppBar` otomatis memuat icon panah kembali (`Navigator.pop`).<br>• Text judul, subjudul, dan harga satuan.<br>• `Container` warna pastel hijau mint (`#E8F5E9` & border `#C8E6C9`) dengan padding `16dp`. |
+| **e** | **Struktur Aplikasi**: `AppBar` agar fungsi tombol "Kembali" bawaan otomatis tersedia. | ✅ Terpenuhi | `AppBar(title: Text(package.title))` dengan default back button Material 3. |
+| **f** | **Implementasi Konsep Event & State** | ✅ Terpenuhi | Perubahan state interaktif tombol via `setState` pada kuantitas pemesanan, toggle support prioritas, total biaya, dan bookmark. |
 
 ---
 
-## 📸 3. Dokumentasi & Bukti Pengujian Tampilan Antarmuka (UI)
+## 📱 3. Dokumentasi Tampilan Antarmuka Mobile (Screenshots & Keterangan)
 
-### A. Tampilan Screen 1: Beranda / Katalog (`StatelessWidget`)
-> **Spesifikasi:** Menampilkan `AppBar`, `ListView` yang dapat di-*scroll* berisi 3 buah kartu vertikal (`PricingCard`) paket layanan IT (Paket Starter, Paket Profesional dengan badge Rekomendasi, dan Paket Enterprise). Setiap kartu memuat ikon, judul, rincian harga, daftar checklist fitur (✓), dan tombol interaktif *"Pilih Paket"*.
+### 📸 Tampilan 1: Screen 1 — Katalog Layanan IT (`StatelessWidget`)
+> **Keterangan Alur**: Layar utama menampilkan daftar 3 kartu vertikal paket layanan IT dengan `ListView` yang dapat di-*scroll*. Setiap kartu memiliki ikon, nama paket, deskripsi, harga, daftar fitur dengan tanda centang (✓), serta tombol *"Pilih Paket"*.
 
 ```text
-+-------------------------------------------------------+
-|  Katalog Layanan IT                                   |
-+-------------------------------------------------------+
-|  +-------------------------------------------------+  |
-|  | [💻]                             [Rekomendasi]  |  |
-|  | Paket Profesional                               |  |
-|  | Solusi lengkap untuk Bisnis IT Anda             |  |
-|  | Rp 5.000.000 / proyek                           |  |
-|  | ✓ Desain UI/UX Khusus                           |  |
-|  | ✓ Setup Database                                |  |
-|  | ✓ Maintenance 1 Bulan                           |  |
-|  | [                 Pilih Paket                 ] |  |
-|  +-------------------------------------------------+  |
-|                                                       |
-|  +-------------------------------------------------+  |
-|  | [🚀]                                            |  |
-|  | Paket Starter                                   |  |
-|  | Solusi dasar untuk portofolio & landing page    |  |
-|  | Rp 1.500.000 / proyek                           |  |
-|  | ✓ Desain Responsif 1 Halaman                    |  |
-|  | ✓ Integrasi Kontak WhatsApp & Email             |  |
-|  | ✓ Domain & Hosting Setup                        |  |
-|  | [                 Pilih Paket                 ] |  |
-|  +-------------------------------------------------+  |
-|                                                       |
-|  (Dapat digulir ke Paket Enterprise...)               |
-+-------------------------------------------------------+
+ ┌─────────────────────────────────────────┐
+ │  09:41              📶  📡  🔋 100%     │
+ ├─────────────────────────────────────────┤
+ │  Katalog Layanan IT                     │
+ ├─────────────────────────────────────────┤
+ │                                         │
+ │  ┌───────────────────────────────────┐  │
+ │  │ 💻                 [ Rekomendasi ]│  │
+ │  │ Paket Profesional                 │  │
+ │  │ Solusi lengkap untuk Bisnis IT    │  │
+ │  │ Rp 5.000.000 / proyek             │  │
+ │  │  ✓ Desain UI/UX Khusus            │  │
+ │  │  ✓ Setup Database                 │  │
+ │  │  ✓ Maintenance 1 Bulan            │  │
+ │  │ [           Pilih Paket         ] │  │
+ │  └───────────────────────────────────┘  │
+ │                                         │
+ │  ┌───────────────────────────────────┐  │
+ │  │ 🚀                                │  │
+ │  │ Paket Starter                     │  │
+ │  │ Solusi dasar untuk portofolio     │  │
+ │  │ Rp 1.500.000 / proyek             │  │
+ │  │  ✓ Desain Responsif 1 Halaman     │  │
+ │  │  ✓ Integrasi Kontak WhatsApp      │  │
+ │  │ [           Pilih Paket         ] │  │
+ │  └───────────────────────────────────┘  │
+ │                                         │
+ └─────────────────────────────────────────┘
 ```
-*(Lampirkan tangkapan layar `catalog_screen` di sini saat ekspor PDF)*
 
 ---
 
-### B. Navigasi Antar Halaman (`Navigator.push`)
-> **Spesifikasi:** Pengguna menekan kartu atau tombol *"Pilih Paket"*. Aplikasi melakukan transisi animasi tumpukan (*Stack Navigation*) menuju `DetailScreen` secara mulus.
+### 📸 Tampilan 2: Navigasi Antar Halaman (`Navigator.push`)
+> **Keterangan Alur**: Saat pengguna menekan kartu atau tombol *"Pilih Paket"*, aplikasi mengeksekusi `Navigator.push` untuk menumpuk `DetailScreen` di atas tumpukan navigasi secara mulus.
 
 ---
 
-### C. Tampilan Screen 2: Detail Layanan (`StatefulWidget`)
-> **Spesifikasi:** Tata letak vertikal `Column` dengan rincian nama paket, harga satuan, kontainer berlatar warna pastel (`#E8F5E9`) untuk deskripsi paket, checklist layanan termasuk, counter kuantitas, toggle support tambahan, serta tombol aksi *"Pesan Sekarang"*. `AppBar` otomatis memuat tombol panah kembali (*back button*).
+### 📸 Tampilan 3: Screen 2 — Detail Layanan (`StatefulWidget`)
+> **Keterangan Alur**: Layar sekunder menampilkan judul paket, tombol panah kembali pada `AppBar`, rincian harga, kotak pastel hijau mint (`#E8F5E9`) untuk deskripsi, daftar layanan termasuk, kontrol kuantitas, dan tombol aksi *"Pesan Sekarang"*.
 
 ```text
-+-------------------------------------------------------+
-|  <-  Paket Profesional                          [🔖]  |
-+-------------------------------------------------------+
-|  [💻] Paket Profesional                               |
-|       Solusi lengkap untuk Bisnis IT Anda             |
-|                                                       |
-|  Rp 5.000.000 / proyek                                |
-|                                                       |
-|  +-------------------------------------------------+  |
-|  | Deskripsi Paket (Warna Pastel Hijau Mint)       |  |
-|  | Layanan komprehensif untuk digitalisasi proses  |  |
-|  | bisnis Anda. Mencakup arsitektur frontend dan   |  |
-|  | backend yang teruji serta database terintegrasi.|  |
-|  +-------------------------------------------------+  |
-|                                                       |
-|  Layanan Termasuk:                                    |
-|  [✓] Desain UI/UX Khusus                              |
-|  [✓] Setup Database                                   |
-|  [✓] Maintenance 1 Bulan                              |
-|                                                       |
-|  +-------------------------------------------------+  |
-|  | Jumlah Paket: [-] 1 [+]                         |  |
-|  | Support Prioritas 24/7 (+Rp 250.000) [ON/OFF]   |  |
-|  | Total Biaya: Rp 5.000.000                       |  |
-|  +-------------------------------------------------+  |
-|                                                       |
-|  [         🛒 Pesan Sekarang (Rp 5.000.000)        ]  |
-+-------------------------------------------------------+
+ ┌─────────────────────────────────────────┐
+ │  09:41              📶  📡  🔋 100%     │
+ ├─────────────────────────────────────────┤
+ │  ←  Paket Profesional             🔖    │
+ ├─────────────────────────────────────────┤
+ │                                         │
+ │  💻 Paket Profesional                   │
+ │     Solusi lengkap untuk Bisnis IT Anda │
+ │                                         │
+ │  Rp 5.000.000 / proyek                  │
+ │                                         │
+ │  ┌───────────────────────────────────┐  │
+ │  │ ℹ️ Deskripsi Paket (Pastel Mint)   │  │
+ │  │ Layanan komprehensif digitalisasi │  │
+ │  │ proses bisnis. Arsitektur frontend│  │
+ │  │ & backend teruji serta database.  │  │
+ │  └───────────────────────────────────┘  │
+ │                                         │
+ │  Layanan Termasuk:                      │
+ │  ✓ Desain UI/UX Khusus                  │
+ │  ✓ Setup Database                       │
+ │  ✓ Maintenance 1 Bulan                  │
+ │                                         │
+ │  ┌───────────────────────────────────┐  │
+ │  │ Jumlah Paket:        [-]  1  [+]  │  │
+ │  │ Support Prioritas    (+250rb) [○] │  │
+ │  │ Total Biaya:         Rp 5.000.000 │  │
+ │  └───────────────────────────────────┘  │
+ │                                         │
+ │ [    🛒 Pesan Sekarang (Rp 5.000.000)   ]│
+ └─────────────────────────────────────────┘
 ```
-*(Lampirkan tangkapan layar `detail_screen` di sini saat ekspor PDF)*
-
----
-
-### D. Demonstrasi Perubahan State Interaktif (`setState`)
-> **Spesifikasi:** Ketika kuantitas atau switch support diubah, total harga terhitung secara dinamis dan real-time. Ketika tombol *"Pesan Sekarang"* ditekan, muncul modal dialog konfirmasi pemesanan.
 
 ---
 
@@ -122,13 +119,13 @@
 mobile-T3D/
 ├── lib/
 │   ├── models/
-│   │   └── package_model.dart       # Model data & 3 dummy packages
+│   │   └── package_model.dart       # Model data & dummy generator
 │   ├── screens/
 │   │   ├── catalog_screen.dart      # Screen 1: StatelessWidget (ListView 3 cards)
 │   │   └── detail_screen.dart       # Screen 2: StatefulWidget (Column + Pastel box + setState)
 │   ├── widgets/
-│   │   └── pricing_card.dart        # Reusable card component
-│   └── main.dart                    # Entry point aplikasi (Material 3)
+│   │   └── pricing_card.dart        # Reusable card component (Tugas #3)
+│   └── main.dart                    # Entry point aplikasi (Material 3 Theme)
 ├── pubspec.yaml                     # Konfigurasi dependensi Flutter
 └── README.md                        # Panduan instalasi dan dokumentasi teknis
 ```
