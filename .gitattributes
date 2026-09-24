@@ -1,9 +1,0 @@
-# Sembunyikan platform boilerplate agar GitHub Languages menghitung 100% Dart
-android/** linguist-vendored
-ios/** linguist-vendored
-windows/** linguist-vendored
-linux/** linguist-vendored
-macos/** linguist-vendored
-web/** linguist-vendored
-build/** linguist-vendored
-.dart_tool/** linguist-vendored
