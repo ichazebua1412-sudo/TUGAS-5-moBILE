@@ -20,18 +20,3 @@ Entitas semantik bernama yang menyimpan keputusan desain visual (warna, tipograf
 - **System / Semantic Tokens (Tier 2)**: Peran fungsional warna (misal: Primary, Surface, Error, On-Surface).
 - **Component Tokens (Tier 3)**: Nilai spesifik untuk komponen tertentu (misal: Button-Background, Card-Elevation).
 
----
-
-## Web Framework Context (Express.js & Next.js Fullstack Todo)
-
-### Todo Item
-Unit tugas pengguna yang dikelola secara persisten di basis data, memiliki identitas unik, keterikatan pemilik (user), teks deskripsi, dan status penyelesaian.
-
-### Auth Guard (Middleware Autentikasi)
-Lapisan inspeksi permintaan yang memverifikasi keabsahan kredensial token sebelum mengizinkan rute terproteksi diakses.
-
-### Validator Middleware
-Lapisan inspeksi payload permintaan untuk menjamin integritas data masukan sebelum diteruskan ke pengontrol logika bisnis.
-
-### Unified Response Contract
-Format standar struktur keluaran API yang seragam di seluruh endpoint (mencakup status keberhasilan, pesan, data payload, metadata paginasi, dan jejak audit waktu/request-id).
